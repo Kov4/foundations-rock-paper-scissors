@@ -1,3 +1,5 @@
+
+
 function computerPlay(){
     let randresult;
     randresult = Math.floor(Math.random() * 3);
@@ -42,7 +44,10 @@ function playRound(playerSelection, computerSelection){
     return resultString;
 }
 
-function game(){
+
+
+
+/*function game(){
     let winner;
     let roundResult;
     let winningPoint = 0;
@@ -78,6 +83,11 @@ function game(){
     }
 
     return winner;
-}
+}*/
 
-console.log(game());
+//console.log(game());
+
+const rockBut = document.querySelector('button');
+const btn = document.querySelector('#btn');
+//rockButton.addEventListener('click', playRound('Rock',computerPlay));
+console.log(btn);
