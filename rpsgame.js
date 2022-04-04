@@ -67,6 +67,9 @@ function rockScore(playerScore, computerScore){
 
     console.log(playerScore, computerScore);
 
+    const score=document.querySelector('.score');
+    score.textContent=`Player score : ${playerScore} Computer score ${computerScore}`;
+
     if(playerScore === 5){
         console.log('Player won the game:)');
         playerScore = 0;
@@ -98,6 +101,9 @@ function paperScore(playerScore, computerScore){
 
     console.log(playerScore, computerScore);
 
+    const score=document.querySelector('.score');
+    score.textContent=`Player score : ${playerScore} Computer score ${computerScore}`;
+
     if(playerScore === 5){
         console.log('Player won the game:)');
         playerScore = 0;
@@ -113,13 +119,15 @@ function paperScore(playerScore, computerScore){
         resultat.textContent='Computer won the game :/';
     }
 
+
+
     return [playerScore, computerScore];
     
 }
 
 function scissorsScore(playerScore, computerScore){
     
-    let result = playRound('paper', computerPlay());
+    let result = playRound('scissors', computerPlay());
 
     if(result === 'You win this round, congratulations !'){
         playerScore = playerScore + 1;
@@ -129,6 +137,9 @@ function scissorsScore(playerScore, computerScore){
     }
 
     console.log(playerScore, computerScore);
+
+    const score=document.querySelector('.score');
+    score.textContent=`Player score : ${playerScore} Computer score ${computerScore}`;
 
     if(playerScore === 5){
         console.log('Player won the game:)');
@@ -154,17 +165,15 @@ function playGame(){
     let playerScore = 0;
     let computerScore = 0;
 
-    document.querySelectorAll('.rockButton').forEach(item => {
-        item.addEventListener('click', function() {[playerScore, computerScore] = rockScore(playerScore, computerScore);}); 
-    });
+    const rockButton = document.querySelector('.rockButton')
+    rockButton.addEventListener('click', function() {[playerScore, computerScore] = rockScore(playerScore, computerScore);}); 
 
-    document.querySelectorAll('.paperButton').forEach(item => {
-        item.addEventListener('click', function() {[playerScore, computerScore] = paperScore(playerScore, computerScore);}); 
-    });
+    const paperButton = document.querySelector('.paperButton')
+    paperButton.addEventListener('click', function() {[playerScore, computerScore] = paperScore(playerScore, computerScore);}); 
 
-    document.querySelectorAll('.scissorsButton').forEach(item => {
-        item.addEventListener('click', function() {[playerScore, computerScore] = scissorsScore(playerScore, computerScore);}); 
-    });       
+
+    const scissorsButton = document.querySelector('.scissorsButton')
+    scissorsButton.addEventListener('click', function() {[playerScore, computerScore] = scissorsScore(playerScore, computerScore);});       
 }
 
 playGame();
